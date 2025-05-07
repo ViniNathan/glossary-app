@@ -44,4 +44,4 @@ frontend/next-env.d.ts
 
 
 ## Backend
-./backend/node_modules
+backend/node_modules
