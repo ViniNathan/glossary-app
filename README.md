@@ -9,7 +9,8 @@ GlossaryUP is a web application for english improvment, allowing users to learn 
 ## 🚀 Features
 
 ### User Management
-✅ User registration with email and password
-✅ User login
-✅ Password recovery via email
-✅ Profile updates (name, email, and password)
+- ✅ User registration with email and password
+- ✅ User login
+- ✅ Password recovery via email
+- ✅ Profile updates (name, email, and password)
+
