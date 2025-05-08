@@ -1,8 +1,14 @@
 'use client';
-
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="w-full bg-[#0a0a0c]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
