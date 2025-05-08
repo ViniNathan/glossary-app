@@ -16,11 +16,11 @@ GlossaryUP is a web application for english improvment, allowing users to learn 
 
 
 ### 🤝 Contributing
-- 1- Fork the project
-- 2- Create a new branch (git checkout -b feature/new-feature)
-- 3- Commit your changes (git commit -m 'Add new feature')
-- 4- Push to the branch (git push origin feature/new-feature)
-- 5- Open a Pull Request following the project pattern
+1. Fork the project
+2. Create a new branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request following the project pattern
 
 #### Pull Request Pattern
 
