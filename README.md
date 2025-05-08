@@ -15,7 +15,7 @@ GlossaryUP is a web application for english improvment, allowing users to learn 
 - ✅ Profile updates (name, email, and password)
 
 
-### 🤝 Contributing
+## 🤝 Contributing
 1. Fork the project
 2. Create a new branch (`git checkout -b feature/new-feature`)
 3. Commit your changes (`git commit -m 'Add new feature'`)
