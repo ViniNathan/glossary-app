@@ -1,20 +1,9 @@
 import antfu from "@antfu/eslint-config";
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
 
 export default antfu({
   type: "app",
   typescript: true,
   formatters: true,
-  react: true,
   stylistic: {
     indent: 2,
     semi: true,
@@ -36,8 +25,4 @@ export default antfu({
       ignore: ["README.md"],
     }],
   },
-}, {
-  plugins: [
-    ...compat.extends("next/core-web-vitals", "next/typescript"),
-  ],
 });
