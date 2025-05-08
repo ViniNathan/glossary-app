@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { IoMenu } from "react-icons/io5";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,8 +21,17 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Botões de Navegação */}
-          <div className="flex items-center space-x-4">
+          {/* Botão de menu - mobile*/}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-md text-gray-200 hover:text-white hover:bg-[#18181b] focus:outline-none"
+            aria-label="Menu"
+          >
+            <IoMenu className="h-6 w-6" />
+          </button>
+
+          {/* Botões de navegação - desktop */}
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/login"
               className="px-4 py-1 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white transition-colors rounded-full"
@@ -36,6 +46,26 @@ export default function Header() {
             </Link>
           </div>
         </div>
+
+        {/* Menu Mobile */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Link
+                href="/login"
+                className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white hover:bg-[#18181b] transition-colors rounded-md"
+              >
+                Entrar
+              </Link>
+              <Link
+                href="/register"
+                className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-md"
+              >
+                Criar Conta
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
