@@ -14,6 +14,9 @@ importers:
       '@fastify/jwt':
         specifier: ^9.1.0
         version: 9.1.0
+      '@fastify/type-provider-typebox':
+        specifier: ^5.1.0
+        version: 5.1.0(@sinclair/typebox@0.34.33)
       '@prisma/client':
         specifier: ^6.7.0
         version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
@@ -400,6 +403,11 @@ packages:
   '@fastify/proxy-addr@5.0.0':
     resolution: {integrity: sha512-37qVVA1qZ5sgH7KpHkkC4z9SK6StIsIcOmpjvMPXNb3vx2GQxhZocogVYbr2PbbeLCQxYIPDok307xEvRZOzGA==}
 
+  '@fastify/type-provider-typebox@5.1.0':
+    resolution: {integrity: sha512-F1AQHeLiKp1hu6GMWm5W6fZ6zXQ0mTV+qHOzrptAie9AYewvFr5Q3blfy8Qmx9gUgwA3Yj+CWvQQJeTwDgTnIg==}
+    peerDependencies:
+      '@sinclair/typebox': '>=0.26 <=0.34'
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -490,6 +498,9 @@ packages:
 
   '@prisma/get-platform@6.7.0':
     resolution: {integrity: sha512-i9IH5lO4fQwnMLvQLYNdgVh9TK3PuWBfQd7QLk/YurnAIg+VeADcZDbmhAi4XBBDD+hDif9hrKyASu0hbjwabw==}
+
+  '@sinclair/typebox@0.34.33':
+    resolution: {integrity: sha512-5HAV9exOMcXRUxo+9iYB5n09XxzCXnfy4VTNW4xnDv+FgjzAGY989C28BIdljKqmF+ZltUwujE3aossvcVtq6g==}
 
   '@stylistic/eslint-plugin@4.2.0':
     resolution: {integrity: sha512-8hXezgz7jexGHdo5WN6JBEIPHCSFyyU4vgbxevu4YLVS5vl+sxqAAGyXSzfNDyR6xMNSH5H1x67nsXcYMOHtZA==}
@@ -2638,6 +2649,10 @@ snapshots:
       '@fastify/forwarded': 3.0.0
       ipaddr.js: 2.2.0
 
+  '@fastify/type-provider-typebox@5.1.0(@sinclair/typebox@0.34.33)':
+    dependencies:
+      '@sinclair/typebox': 0.34.33
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -2732,6 +2747,8 @@ snapshots:
   '@prisma/get-platform@6.7.0':
     dependencies:
       '@prisma/debug': 6.7.0
+
+  '@sinclair/typebox@0.34.33': {}
 
   '@stylistic/eslint-plugin@4.2.0(eslint@9.26.0)(typescript@5.8.3)':
     dependencies:
