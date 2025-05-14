@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import rocketship from '../../assets/rocketship.png'
+import gamification from '../../assets/gamification.png'
 
 const FeaturesGrid = () => {
   return (
@@ -36,10 +37,18 @@ const FeaturesGrid = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="rounded-2xl bg-black flex flex-col justify-center items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Gamificação</h2>
-          <div className="flex-1 flex items-center justify-center">
-            <div className="text-4xl md:text-6xl">Sistema de vidas, XP e ranking</div>
+        <div className="rounded-2xl bg-black flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4 z-10">Gamificação</h2>
+          <Image 
+              src={gamification} 
+              alt="Gamification" 
+              className="object-cover opacity-40"
+              fill={true}
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority
+          />
+          <div className="w-full z-10">
+            <p className="text-4xl md:text-sm">Sistema de vidas, XP e ranking</p>
           </div>
         </div>
 
