@@ -1,27 +1,49 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
+"use client";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import Link from "next/link";
+import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const currentScrollY = latest;
+    if (currentScrollY > lastScrollY) {
+      setIsVisible(false);
+    }
+    else {
+      setIsVisible(true);
+    }
+    setLastScrollY(currentScrollY);
+  });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="w-full bg-[#0a0a0c]">
+    <motion.div
+      className="w-full bg-[#0a0a0c] fixed top-0 z-50"
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo do App */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-extrabold tracking-widest uppercase bg-gradient-to-r from-[#7f5af0] to-[#2cb5e8] bg-clip-text text-transparent select-none">
-              Glossary<span className="text-white">UP</span>
+              Glossary
+              <span className="text-white">UP</span>
             </Link>
           </div>
 
-          {/* Botão de menu - mobile*/}
+          {/* Botão de menu - mobile */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-md text-gray-200 hover:text-white hover:bg-[#18181b] focus:outline-none"
@@ -40,7 +62,7 @@ export default function Header() {
             </Link>
             <Link
               href="/register"
-              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-full"
+              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white border hover:bg-white hover:text-[#18181b] transition-colors rounded-full"
             >
               Criar Conta
             </Link>
@@ -67,6 +89,6 @@ export default function Header() {
           </div>
         )}
       </div>
-    </header>
+    </motion.div>
   );
-} 
+}
