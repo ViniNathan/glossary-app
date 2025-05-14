@@ -40,7 +40,7 @@ export default function Header() {
             </Link>
             <Link
               href="/register"
-              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-full"
+              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white border hover:bg-white hover:text-[#18181b] transition-colors rounded-full"
             >
               Criar Conta
             </Link>
