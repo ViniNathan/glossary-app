@@ -1,8 +1,8 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
+"use client";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import Link from "next/link";
+import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,8 @@ export default function Header() {
     const currentScrollY = latest;
     if (currentScrollY > lastScrollY) {
       setIsVisible(false);
-    } else {
+    }
+    else {
       setIsVisible(true);
     }
     setLastScrollY(currentScrollY);
@@ -26,7 +27,7 @@ export default function Header() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="w-full bg-[#0a0a0c] fixed top-0 z-50"
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
@@ -37,11 +38,12 @@ export default function Header() {
           {/* Logo do App */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-extrabold tracking-widest uppercase bg-gradient-to-r from-[#7f5af0] to-[#2cb5e8] bg-clip-text text-transparent select-none">
-              Glossary<span className="text-white">UP</span>
+              Glossary
+              <span className="text-white">UP</span>
             </Link>
           </div>
 
-          {/* Botão de menu - mobile*/}
+          {/* Botão de menu - mobile */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-md text-gray-200 hover:text-white hover:bg-[#18181b] focus:outline-none"
@@ -89,4 +91,4 @@ export default function Header() {
       </div>
     </motion.div>
   );
-} 
+}
