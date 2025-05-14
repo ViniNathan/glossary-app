@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { IoMenu } from "react-icons/io5";
+import { motion } from "motion/react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
