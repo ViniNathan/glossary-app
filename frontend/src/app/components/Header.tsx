@@ -2,17 +2,36 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { IoMenu } from "react-icons/io5";
-import { motion } from "motion/react"
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const currentScrollY = latest;
+    if (currentScrollY > lastScrollY) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+    setLastScrollY(currentScrollY);
+  });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="w-full bg-[#0a0a0c]">
+    <motion.div 
+      className="w-full bg-[#0a0a0c] fixed top-0 z-50"
+      initial={{ y: 0 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo do App */}
@@ -68,6 +87,6 @@ export default function Header() {
           </div>
         )}
       </div>
-    </header>
+    </motion.div>
   );
 } 
