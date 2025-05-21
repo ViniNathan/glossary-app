@@ -57,7 +57,7 @@ function FeaturesGrid() {
 
         {/* Card 4 */}
         <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4 z-10">Gamificação</h2>
+          <h2 className="text-xl md:text-2xl font-semibold text-white mb-4 z-10">Gamificação</h2>
           <Image
             src={gamification}
             alt="Gamification"
