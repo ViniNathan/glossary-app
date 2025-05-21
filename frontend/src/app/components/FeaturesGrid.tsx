@@ -23,14 +23,14 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 2 */}
-        <div className="rounded-2xl bg-[#18181b] shadow-lg relative overflow-hidden h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
+        <div className="rounded-2xl bg-gradient-to-br from-[#53555a] to-[#1c1d1f] shadow-lg relative overflow-hidden h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
           <div className="absolute inset-0 z-10 p-6">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Evolua na velocidade da luz</h2>
           </div>
           <Image
             src={rocketship}
             alt="Rocketship"
-            className="object-cover opacity-85"
+            className="object-contain object-bottom-right opacity-100"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             priority
