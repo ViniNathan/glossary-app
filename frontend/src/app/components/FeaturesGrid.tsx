@@ -67,7 +67,7 @@ function FeaturesGrid() {
             priority
           />
           <div className="w-full z-10">
-            <p className="text-md">Sistema de vidas, XP e ranking</p>
+            <p className="text-md text-white z-10">Sistema de vidas, XP e ranking</p>
           </div>
         </div>
 
