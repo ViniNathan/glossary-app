@@ -26,7 +26,7 @@ const FeaturesGrid = () => {
           <Image 
             src={rocketship} 
             alt="Rocketship" 
-            className="object-cover"
+            className="object-cover opacity-85"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             priority
