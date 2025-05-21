@@ -25,7 +25,7 @@ function FeaturesGrid() {
         {/* Card 2 */}
         <div className="rounded-2xl bg-gradient-to-br from-[#53555a] to-[#1c1d1f] shadow-lg relative overflow-hidden h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
           <div className="absolute inset-0 z-10 p-6">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Evolua na velocidade da luz</h2>
+            <h2 className="text-xl md:text-4xl font-semibold text-white mb-4">Evolua na <br /> velocidade <br /> da luz</h2>
           </div>
           <Image
             src={rocketship}
