@@ -26,7 +26,7 @@ const steps = [
 function Steps() {
   return (
     <div className="container mx-auto p-4 md:p-6">
-      <div className="flex flex-col md:flex-row flex-wrap items-center justify-between gap-8 md:gap-4">
+      <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-8 md:gap-4">
         {steps.map(step => (
           <div key={step.id} className="flex flex-col justify-center items-center gap-2 w-full md:w-auto md:max-w-[250px]">
             <h3 className="text-xl font-bold w-12 h-12 flex items-center justify-center bg-purple-900 rounded-full">{step.id}</h3>
