@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import rocketship from '../../assets/rocketship.png'
 import gamification from '../../assets/gamification.png'
+import ranking from '../../assets/ranking.png'
 
 const FeaturesGrid = () => {
   return (
@@ -53,9 +54,17 @@ const FeaturesGrid = () => {
         </div>
 
         {/* Card 5 */}
-        <div className="rounded-2xl bg-gradient-to-br from-orange-950 to-blue-950 flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Histórico e estatísticas</h2>
-          <div className="text-4xl md:text-6xl">Verifique seu progresso</div>
+        <div className="rounded-2xl bg-gradient-to-br from-purple-950 to-black flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-4 z-10">Histórico e estatísticas</h2>
+          <Image 
+            src={ranking} 
+            alt="Ranking" 
+            className="object-cover opacity-20"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority
+          />
+          <div className="text-4xl md:text-6xl text-white z-10">Verifique seu progresso</div>
         </div>
       </div>
     </>
