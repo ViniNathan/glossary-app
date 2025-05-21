@@ -3,6 +3,8 @@ import Image from 'next/image'
 import rocketship from '../../assets/rocketship.png'
 import gamification from '../../assets/gamification.png'
 import ranking from '../../assets/ranking.png'
+import smartphone from '../../assets/smartphone.png'
+import { s } from 'motion/react-client'
 
 const FeaturesGrid = () => {
   return (
@@ -32,8 +34,16 @@ const FeaturesGrid = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] md:h-auto lg:col-span-1 lg:row-span-4">
+        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] relative overflow-hidden md:h-auto lg:col-span-1 lg:row-span-4">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Interface minimalista</h2>
+          <Image 
+            src={smartphone} 
+            alt="Smartphone" 
+            className="object-contain"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority
+          />
           <p className="text-white text-sm opacity-80">Obtenha a alta performance<br />com uma estrutura moderna.</p>
         </div>
 
