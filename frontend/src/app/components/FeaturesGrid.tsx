@@ -23,14 +23,14 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 2 */}
-        <div className="rounded-2xl bg-[#18181b] shadow-lg relative overflow-hidden h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
+        <div className="rounded-2xl bg-gradient-to-br from-[#53555a] to-[#1c1d1f] shadow-lg relative overflow-hidden h-[300px] md:h-auto lg:col-span-2 lg:row-span-2">
           <div className="absolute inset-0 z-10 p-6">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Evolua na velocidade da luz</h2>
+            <h2 className="text-xl md:text-4xl font-semibold text-white mb-4">Evolua na <br /> velocidade <br /> da luz</h2>
           </div>
           <Image
             src={rocketship}
             alt="Rocketship"
-            className="object-cover opacity-85"
+            className="object-contain object-bottom-right opacity-100"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             priority
@@ -38,7 +38,7 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 3 */}
-        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] relative overflow-hidden md:h-auto lg:col-span-1 lg:row-span-4">
+        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] relative overflow-hidden md:h-auto lg:col-span-1 lg:row-span-4 pointer-events-none">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-2 z-10">Interface minimalista</h2>
           <Image
             src={smartphone}
@@ -56,8 +56,8 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 4 */}
-        <div className="rounded-2xl bg-black flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4 z-10">Gamificação</h2>
+        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden pointer-events-none">
+          <h2 className="text-xl md:text-4xl font-semibold text-white mb-4 z-10">Gamificação</h2>
           <Image
             src={gamification}
             alt="Gamification"
@@ -67,22 +67,22 @@ function FeaturesGrid() {
             priority
           />
           <div className="w-full z-10">
-            <p className="text-4xl md:text-sm">Sistema de vidas, XP e ranking</p>
+            <p className="text-md text-white z-10">Sistema de vidas, XP e ranking</p>
           </div>
         </div>
 
         {/* Card 5 */}
-        <div className="rounded-2xl bg-gradient-to-br from-purple-950 to-black flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4 z-10">Histórico e estatísticas</h2>
+        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2 pointer-events-none">
+          <h2 className="text-xl md:text-4xl font-semibold text-white mb-4 z-10">Verifique seu progresso</h2>
           <Image
             src={ranking}
             alt="Ranking"
-            className="object-contain object-bottom-right opacity-15"
+            className="object-contain object-bottom-right opacity-25"
             fill={true}
             sizes="(max-width: 768px) 100vw, 33vw"
             priority
           />
-          <div className="text-4xl md:text-6xl text-white z-10">Verifique seu progresso</div>
+          <div className="text-md text-white z-10">Faça o tracking do seu desenvolvimento utilizando o sistema de histórico e estatísticas</div>
         </div>
       </div>
     </>
