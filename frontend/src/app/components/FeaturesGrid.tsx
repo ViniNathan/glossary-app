@@ -38,7 +38,7 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 3 */}
-        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] relative overflow-hidden md:h-auto lg:col-span-1 lg:row-span-4">
+        <div className="rounded-2xl bg-gradient-to-tr from-blue-800 to-violet-950 flex flex-col justify-end items-center p-6 shadow-lg h-[300px] relative overflow-hidden md:h-auto lg:col-span-1 lg:row-span-4 pointer-events-none">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-2 z-10">Interface minimalista</h2>
           <Image
             src={smartphone}
@@ -56,7 +56,7 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 4 */}
-        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden">
+        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start p-6 md:p-8 shadow-lg h-[300px] md:h-auto lg:col-span-2 lg:row-span-2 relative overflow-hidden pointer-events-none">
           <h2 className="text-xl md:text-4xl font-semibold text-white mb-4 z-10">Gamificação</h2>
           <Image
             src={gamification}
@@ -72,7 +72,7 @@ function FeaturesGrid() {
         </div>
 
         {/* Card 5 */}
-        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2">
+        <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2 pointer-events-none">
           <h2 className="text-xl md:text-4xl font-semibold text-white mb-4 z-10">Verifique seu progresso</h2>
           <Image
             src={ranking}
