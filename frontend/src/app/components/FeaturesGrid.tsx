@@ -73,7 +73,7 @@ function FeaturesGrid() {
 
         {/* Card 5 */}
         <div className="rounded-2xl bg-gradient-to-br from-[#2f3031] to-[#1a1818] flex flex-col justify-between items-start relative overflow-hidden p-6 md:p-8 shadow-lg h-[300px] md:h-auto md:col-span-2 lg:col-span-3 lg:row-span-2">
-          <h2 className="text-xl md:text-4xl font-bold text-white mb-4 z-10">Verifique seu progresso</h2>
+          <h2 className="text-xl md:text-4xl font-semibold text-white mb-4 z-10">Verifique seu progresso</h2>
           <Image
             src={ranking}
             alt="Ranking"
