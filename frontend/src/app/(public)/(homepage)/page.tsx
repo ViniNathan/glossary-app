@@ -1,6 +1,7 @@
 import React from "react";
-import HeroSection from "@/app/components/HeroSection";
+
 import FeaturesGrid from "@/app/components/FeaturesGrid";
+import HeroSection from "@/app/components/HeroSection";
 
 function Homepage() {
   return (
