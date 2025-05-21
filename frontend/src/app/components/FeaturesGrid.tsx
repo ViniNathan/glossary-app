@@ -53,7 +53,7 @@ const FeaturesGrid = () => {
           <Image 
               src={gamification} 
               alt="Gamification" 
-              className="object-contain object-bottom-right opacity-25"
+              className="object-contain object-bottom-right opacity-35"
               fill={true}
               sizes="(max-width: 768px) 100vw, 33vw"
               priority
