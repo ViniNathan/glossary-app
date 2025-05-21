@@ -7,7 +7,7 @@ import Steps from "@/app/components/Steps";
 
 function Homepage() {
   return (
-    <div className="">
+    <div className="space-y-16">
       <HeroSection />
       <FeaturesGrid />
       <Steps />
