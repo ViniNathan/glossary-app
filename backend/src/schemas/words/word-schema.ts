@@ -1,4 +1,4 @@
-import { Type } from '@fastify/type-provider-typebox'
+import { Type } from "@fastify/type-provider-typebox";
 
 export const createWordSchema = {
   body: Type.Object({
@@ -14,7 +14,7 @@ export const createWordSchema = {
       difficulty_level: Type.String(),
     }),
   },
-}
+};
 
 export const updateWordSchema = {
   body: Type.Partial(createWordSchema.body),
@@ -26,4 +26,4 @@ export const updateWordSchema = {
       difficulty_level: Type.String(),
     }),
   },
-}
+};
