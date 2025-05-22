@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const HeroSection = () => {
+function HeroSection() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
       {/* <div className="absolute top-30 left-40 w-90 h-90 bg-gradient-to-br from-purple-500 to-blue-400 opacity-40 rounded-full blur-3xl z-0" />
@@ -8,7 +8,9 @@ const HeroSection = () => {
 
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-5xl md:text-6xl font-bold text-white text-center mb-4">
-          Aprenda vocabulário <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-400">sem esforço</span>
+          Aprenda vocabulário
+          {" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-400">sem esforço</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-300 text-center mb-8 max-w-2xl">
           Expanda seu vocabulário em inglês utilizando sua voz e nossa abordagem interativa de aprendizado
@@ -23,7 +25,7 @@ const HeroSection = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;
