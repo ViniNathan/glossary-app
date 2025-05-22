@@ -29,7 +29,7 @@ function HomepageCard() {
           </div>
           <div className="w-9/10 md:w-1/2 flex flex-row justify-between items-center">
             {stats.map(stat => (
-              <div key={stat.id} className="flex flex-col justify-center items-center">
+              <div key={stat.id} className="text-center flex flex-col justify-center items-center">
                 <h1 className="text-5xl font-bold text-[#7f62f4]">{stat.value}</h1>
                 <p className="text-lg text-gray-400">{stat.title}</p>
               </div>
