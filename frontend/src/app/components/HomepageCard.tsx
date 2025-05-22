@@ -21,7 +21,7 @@ const stats = [
 function HomepageCard() {
   return (
     <div className="container mx-auto p-4 md:p-6">
-      <div className="bg-[#141416] border border-[#3f3f46] rounded-3xl shadow-md p-6">
+      <div className="bg-[#141416] border border-[#3f3f46] rounded-3xl shadow-md p-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
           <div className="md:w-1/3 flex flex-col justify-start items-center md:items-start gap-4">
             <h1 className="text-2xl font-semibold">Expanda seu vocabulário</h1>
