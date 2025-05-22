@@ -24,7 +24,7 @@ function HomepageCard() {
       <div className="bg-[#141416] border border-[#3f3f46] rounded-3xl shadow-md p-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-4">
           <div className="md:w-1/3 flex flex-col justify-start items-center md:items-start gap-4">
-            <h1 className="text-2xl font-semibold">Expanda seu vocabulário</h1>
+            <h1 className="text-center md:text-left text-2xl font-semibold">Expanda seu vocabulário</h1>
             <p className="text-lg text-gray-400">Quanto mais você pratica, mais rápido expande seu vocabulário em inglês. Aumente suas habilidades linguísticas dia após dia.</p>
           </div>
           <div className="w-9/10 md:w-1/2 flex flex-col md:flex-row justify-center md:justify-between items-center gap-10 md:gap-0">
