@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className="overflow-x-hidden w-screen pt-3 md:pt-5 bg-bg text-black"
+        className="overflow-x-hidden w-screen py-4 md:pt-5 bg-bg text-black"
       >
         <Header />
         <main className="min-h-screen">
