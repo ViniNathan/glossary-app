@@ -27,7 +27,7 @@ function HomepageCard() {
             <h1 className="text-2xl font-semibold">Expanda seu vocabulário</h1>
             <p className="text-lg text-gray-400">Quanto mais você pratica, mais rápido expande seu vocabulário em inglês. Aumente suas habilidades linguísticas dia após dia.</p>
           </div>
-          <div className="md:w-1/2 flex flex-row justify-between items-center">
+          <div className="w-9/10 md:w-1/2 flex flex-row justify-between items-center">
             {stats.map(stat => (
               <div key={stat.id} className="flex flex-col justify-center items-center">
                 <h1 className="text-4xl font-bold text-[#7f62f4]">{stat.value}</h1>
