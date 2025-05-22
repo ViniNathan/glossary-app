@@ -20,6 +20,12 @@ export class WordRepository {
         });
     }
 
+    async findByWord(word: string) {
+        return this.prisma.word.findUnique({
+            where: { word }
+        });
+    }
+
     async update(id: string, data: UpdateWordDTO) {
         return this.prisma.word.update({
             where: { id },
