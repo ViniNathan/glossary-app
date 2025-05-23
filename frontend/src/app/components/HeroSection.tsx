@@ -1,7 +1,19 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 
 function HeroSection() {
+    const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
       {/* <div className="absolute top-30 left-40 w-90 h-90 bg-gradient-to-br from-purple-500 to-blue-400 opacity-40 rounded-full blur-3xl z-0" />
@@ -20,7 +32,7 @@ function HeroSection() {
           <Link href="/register" className="px-6 py-3 rounded-full bg-transparent border border-purple-700 hover:bg-purple-700 hover:border-purple-700 text-white font-semibold shadow-lg transition-all duration-200">
             Começar agora
           </Link>
-          <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold shadow-lg transition-all duration-200">
+          <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold shadow-lg transition-all duration-200" onClick={scrollToSection}>
             Como funciona
           </button>
         </div>
