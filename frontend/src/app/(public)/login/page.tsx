@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
+import Link from "next/link"
 
 function LoginPage() {
   const handleLogin = (event: React.FormEvent) => {
@@ -11,9 +12,9 @@ function LoginPage() {
 
   return (
     <>
-      <div className="absolute top-4 left-4">
+      <Link className="absolute top-4 left-4" href="/">
         <FiArrowLeftCircle className="size-10 text-[#7f62f4] hover:text-[#7f5af0] cursor-pointer" />
-      </div>
+      </Link>
       <div className="container mx-auto flex min-h-screen flex-col items-center justify-center gap-4 px-4 py-6 md:gap-8">
         <h1 className="text-2xl font-bold md:text-3xl lg:text-4xl">
           <span className="bg-gradient-to-r from-[#7f5af0] to-[#2cb5e8] bg-clip-text text-transparent select-none">Comece</span>
