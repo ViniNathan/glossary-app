@@ -22,7 +22,7 @@ function LoginPage() {
           <label htmlFor="password" className="text-sm font-semibold mb-[-0.5rem]">Senha</label>
           <input
             type="password"
-            placeholder="********"
+            placeholder="••••••••"
             className="border border-gray-600 rounded-lg p-2 bg-transparent"
           />
           <button
