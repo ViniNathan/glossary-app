@@ -1,6 +1,12 @@
 import React from "react";
 
 function LoginPage() {
+  const handleLogin = (event: React.FormEvent) => {
+    event.preventDefault();
+    // Implementar a logica de login aqui
+    console.log("Login form submitted");
+  };
+
   return (
     <div className="container mx-auto flex h-screen flex-col items-center justify-center gap-8">
       <h1 className="text-3xl md:text-4xl font-bold">
@@ -28,6 +34,7 @@ function LoginPage() {
           <button
             type="submit"
             className="mt-4 bg-[#7f62f4] text-white rounded-3xl p-2"
+            onClick={handleLogin}
           >
             Entrar
           </button>
