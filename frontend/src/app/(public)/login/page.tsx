@@ -12,7 +12,7 @@ function LoginPage() {
         <h1 className="text-2xl font-bold mb-4">Entrar</h1>
         <p className="text-md text-gray-400">Faça login para começar sua jornada de aprendizado</p>
 
-        <form className="flex flex-col gap-4 mt-4">
+        <form className="flex flex-col gap-4 mt-8">
           <input
             type="email"
             placeholder="Email"
