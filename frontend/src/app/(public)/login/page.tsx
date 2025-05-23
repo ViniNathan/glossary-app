@@ -27,7 +27,7 @@ function LoginPage() {
           />
           <button
             type="submit"
-            className="bg-[#7f62f4] text-white rounded-3xl p-2"
+            className="mt-4 bg-[#7f62f4] text-white rounded-3xl p-2"
           >
             Entrar
           </button>
