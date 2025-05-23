@@ -14,7 +14,7 @@ export default function LoginLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="overflow-x-hidden min-h-screen w-screen bg-bg text-white">
+      <body className="overflow-x-hidden min-h-screen w-screen px-4 bg-bg text-white">
         {children}
       </body>
     </html>
