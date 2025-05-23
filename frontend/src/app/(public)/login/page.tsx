@@ -6,7 +6,7 @@ function LoginPage() {
       <h1 className="text-4xl font-bold">Comece sua jornada</h1>
       <div className="w-max flex flex-col items-left justify-center bg-gradient-to-br from-[#17161d] to-[#121213] border border-gray-600 rounded-lg p-4">
         <h1 className="text-2xl font-bold mb-4">Entrar</h1>
-        <p>Faça login para começar sua jornada de aprendizado</p>
+        <p className="text-md">Faça login para começar sua jornada de aprendizado</p>
 
         <form className="flex flex-col gap-4 mt-4">
           <input
