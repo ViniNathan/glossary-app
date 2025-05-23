@@ -13,13 +13,13 @@ function LoginPage() {
         <p className="text-md text-gray-400">Faça login para começar sua jornada de aprendizado</p>
 
         <form className="flex flex-col gap-4 mt-8">
-          <label htmlFor="email" className="text-md font-semibold mb-[-0.5rem]">Email</label>
+          <label htmlFor="email" className="text-sm font-semibold mb-[-0.5rem]">Email</label>
           <input
             type="email"
             placeholder="seu@email.com"
             className="border border-gray-600 rounded-lg p-2 bg-transparent"
           />
-          <label htmlFor="password" className="text-md font-semibold mb-[-0.5rem]">Senha</label>
+          <label htmlFor="password" className="text-sm font-semibold mb-[-0.5rem]">Senha</label>
           <input
             type="password"
             placeholder="********"
