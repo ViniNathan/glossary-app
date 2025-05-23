@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 function HeroSection() {
   return (
@@ -16,9 +17,9 @@ function HeroSection() {
           Expanda seu vocabulário em inglês utilizando sua voz e nossa abordagem interativa de aprendizado
         </p>
         <div className="flex gap-4">
-          <button className="px-6 py-3 rounded-full bg-transparent border border-purple-700 hover:bg-purple-700 hover:border-purple-700 text-white font-semibold shadow-lg transition-all duration-200">
+          <Link href="/register" className="px-6 py-3 rounded-full bg-transparent border border-purple-700 hover:bg-purple-700 hover:border-purple-700 text-white font-semibold shadow-lg transition-all duration-200">
             Começar agora
-          </button>
+          </Link>
           <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold shadow-lg transition-all duration-200">
             Como funciona
           </button>
