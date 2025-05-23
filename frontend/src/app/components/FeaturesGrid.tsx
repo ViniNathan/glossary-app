@@ -8,7 +8,7 @@ import smartphone from "../../assets/smartphone.png";
 
 function FeaturesGrid() {
   return (
-    <>
+    <section id="how-it-works">
       <h1 className="text-4xl md:text-6xl font-bold text-center my-8">Como funciona</h1>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 md:gap-6 p-4 md:p-6 min-h-[80vh]">
         {/* Card 1 */}
@@ -85,7 +85,7 @@ function FeaturesGrid() {
           <div className="text-md text-white z-10">Faça o tracking do seu desenvolvimento utilizando o sistema de histórico e estatísticas</div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 
