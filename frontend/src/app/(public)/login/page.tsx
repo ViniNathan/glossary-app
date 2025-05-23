@@ -3,7 +3,7 @@ import React from "react";
 function LoginPage() {
   return (
     <div className="container mx-auto flex h-screen flex-col items-center justify-center gap-8">
-      <h1 className="text-4xl font-bold">
+      <h1 className="text-3xl md:text-4xl font-bold">
         <span className="bg-gradient-to-r from-[#7f5af0] to-[#2cb5e8] bg-clip-text text-transparent select-none">Comece</span>
         {" "}
         sua jornada
