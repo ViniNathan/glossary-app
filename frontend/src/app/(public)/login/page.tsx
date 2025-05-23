@@ -15,7 +15,7 @@ function LoginPage() {
         <form className="flex flex-col gap-4 mt-8">
           <input
             type="email"
-            placeholder="Email"
+            placeholder="seu@email.com"
             className="border border-gray-600 rounded-lg p-2 bg-transparent"
           />
           <input
