@@ -7,6 +7,26 @@ function LoginPage() {
       <div className="w-max flex flex-col items-center justify-center border border-gray-600 rounded-lg p-4">
         <h1 className="text-2xl font-bold mb-4">Entrar</h1>
         <p>Faça login para começar sua jornada de aprendizado</p>
+
+        <form className="flex flex-col gap-4 mt-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="border border-gray-600 rounded-lg p-2 bg-transparent"
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            className="border border-gray-600 rounded-lg p-2 bg-transparent"
+          />
+          <button
+            type="submit"
+            className="bg-[#7f62f4] text-white rounded-lg p-2"
+          >
+            Entrar
+          </button>
+        </form>
+
       </div>
     </div>
   );
