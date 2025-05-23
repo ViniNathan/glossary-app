@@ -20,7 +20,7 @@ function LoginPage() {
           />
           <input
             type="password"
-            placeholder="Senha"
+            placeholder="********"
             className="border border-gray-600 rounded-lg p-2 bg-transparent"
           />
           <button
