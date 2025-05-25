@@ -1,7 +1,7 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
-import Link from "next/link"
 
 function LoginPage() {
   const handleLogin = (event: React.FormEvent) => {
