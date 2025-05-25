@@ -47,6 +47,11 @@ function LoginPage() {
             </button>
           </form>
         </div>
+        <Link href="/register" className="text-white text-md mt-[-0.5rem]">
+          Ainda não tem uma conta?
+          {" "}
+          <span className="font-bold text-[#7f5af0]">Registre-se</span>
+        </Link>
       </div>
     </>
 
