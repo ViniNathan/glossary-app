@@ -53,6 +53,11 @@ function RegisterPage() {
             </button>
           </form>
         </div>
+        <Link href="/login" className="text-white text-md mt-[-0.5rem]">
+          Já tem uma conta?
+          {" "}
+          <span className="font-bold text-[#7f5af0]">Faça login</span>
+        </Link>
       </div>
     </>
 
