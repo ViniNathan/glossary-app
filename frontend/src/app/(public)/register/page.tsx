@@ -1,7 +1,7 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
-import Link from "next/link"
 
 function RegisterPage() {
   const handleRegister = (event: React.FormEvent) => {
@@ -37,8 +37,8 @@ function RegisterPage() {
               type="password"
               placeholder="••••••••"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
-                      />
-                      <label htmlFor="confirm-password" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Confirmar Senha</label>
+            />
+            <label htmlFor="confirm-password" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Confirmar Senha</label>
             <input
               type="password"
               placeholder="••••••••"
