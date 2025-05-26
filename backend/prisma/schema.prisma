@@ -52,7 +52,8 @@ model Attempt {
   wordId             String
   translation_method String
   is_correct         Boolean
-  timestamp          DateTime
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
   session            Session  @relation(fields: [sessionId], references: [id])
   word               Word     @relation(fields: [wordId], references: [id])
 }
