@@ -2,6 +2,7 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 import fastify from "fastify";
 
+import attemptRoutes from "./routes/attempts";
 import userRoutes from "./routes/users/index";
 
 dotenv.config();
@@ -59,6 +60,9 @@ async function build() {
 
     // Registra as rotas de usuários
     await app.register(userRoutes, { prefix: "/api" });
+
+    // Registra as rotas de tentativas
+    await app.register(attemptRoutes, { prefix: "/api" });
 
     return app;
   }
