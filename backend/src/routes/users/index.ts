@@ -20,3 +20,6 @@ export async function userRoutes(app: FastifyInstance) {
 
   app.delete("/users/:id", userController.delete);
 }
+
+// Exporta o plugin para ser registrado no servidor principal
+export default userRoutes;

@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-
 import type { CreateUserDTO, UpdateUserDTO } from "../../types/users/user-types";
+
+import { PrismaClient } from "../../generated/prisma";
 
 export class UserRepository {
   constructor(private prisma = new PrismaClient()) {}

@@ -2,6 +2,8 @@ export interface CreateUserDTO {
   name: string;
   email: string;
   password: string;
+  xp: number;
+  lives: number;
 }
 
 export interface UpdateUserDTO {
