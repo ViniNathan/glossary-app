@@ -8,17 +8,17 @@ export async function userRoutes(app: FastifyInstance) {
 
   app.post("/users", {
     schema: createUserSchema,
-  }, userController.create);
+  }, userController.create.bind(userController));
 
-  app.get("/users", userController.list);
+  app.get("/users", userController.list.bind(userController));
 
-  app.get("/users/:id", userController.findById);
+  app.get("/users/:id", userController.findById.bind(userController));
 
   app.put("/users/:id", {
     schema: updateUserSchema,
-  }, userController.update);
+  }, userController.update.bind(userController));
 
-  app.delete("/users/:id", userController.delete);
+  app.delete("/users/:id", userController.delete.bind(userController));
 }
 
 // Exporta o plugin para ser registrado no servidor principal
