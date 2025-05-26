@@ -1,7 +1,13 @@
 import type { FastifyInstance } from "fastify";
 
 import { UserController } from "../../controllers/users/user-controller";
-import { createUserSchema, updateUserSchema } from "../../schemas/users/user-schema";
+import {
+  createUserSchema,
+  deleteUserSchema,
+  getUserByIdSchema,
+  listUsersSchema,
+  updateUserSchema,
+} from "../../schemas/users/user-schema";
 
 export async function userRoutes(app: FastifyInstance) {
   const userController = new UserController();
@@ -10,16 +16,21 @@ export async function userRoutes(app: FastifyInstance) {
     schema: createUserSchema,
   }, userController.create.bind(userController));
 
-  app.get("/users", userController.list.bind(userController));
+  app.get("/users", {
+    schema: listUsersSchema,
+  }, userController.list.bind(userController));
 
-  app.get("/users/:id", userController.findById.bind(userController));
+  app.get("/users/:id", {
+    schema: getUserByIdSchema,
+  }, userController.findById.bind(userController));
 
   app.put("/users/:id", {
     schema: updateUserSchema,
   }, userController.update.bind(userController));
 
-  app.delete("/users/:id", userController.delete.bind(userController));
+  app.delete("/users/:id", {
+    schema: deleteUserSchema,
+  }, userController.delete.bind(userController));
 }
 
-// Exporta o plugin para ser registrado no servidor principal
 export default userRoutes;
