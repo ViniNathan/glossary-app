@@ -3,8 +3,6 @@ export interface CreateAttemptDTO {
   wordId: string;
   translation_method: string;
   is_correct: boolean;
-  createdAt: Date;
-  updatedAt?: Date;
 }
 
 export interface UpdateAttemptDTO {
@@ -12,7 +10,6 @@ export interface UpdateAttemptDTO {
   wordId: string;
   translation_method: string;
   is_correct: boolean;
-  updatedAt: Date;
 }
 
 export interface Attempt {
@@ -21,6 +18,4 @@ export interface Attempt {
   wordId: string;
   translation_method: string;
   is_correct: boolean;
-  createdAt: Date;
-  updatedAt: Date;
 }
