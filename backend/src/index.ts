@@ -2,6 +2,8 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 import fastify from "fastify";
 
+import userRoutes from "./routes/users/index";
+
 dotenv.config();
 
 const app = fastify({
@@ -17,6 +19,8 @@ app.register(cors, {
 app.get("/", async () => {
   return { message: "API funcionando!" };
 });
+
+app.register(userRoutes);
 
 // Inicia o servidor
 async function start() {
