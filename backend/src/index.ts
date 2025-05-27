@@ -2,7 +2,9 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 import fastify from "fastify";
 
+import { authPlugin } from "./middleware/auth-middleware";
 import attemptRoutes from "./routes/attempts";
+import authRoutes from "./routes/auth";
 import userRoutes from "./routes/users/index";
 
 dotenv.config();
@@ -58,11 +60,17 @@ async function build() {
       return { message: "API funcionando!" };
     });
 
+    // Registra o plugin de autenticação
+    await app.register(authPlugin);
+
     // Registra as rotas de usuários
     await app.register(userRoutes, { prefix: "/api" });
 
     // Registra as rotas de tentativas
     await app.register(attemptRoutes, { prefix: "/api" });
+
+    // Registra as rotas de autenticação
+    await app.register(authRoutes, { prefix: "/api/auth" });
 
     return app;
   }
