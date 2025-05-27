@@ -26,6 +26,14 @@ export class UserService {
     return user;
   }
 
+  async findByEmail(email: string) {
+    const user = await this.userRepository.findByEmail(email);
+    if (!user) {
+      throw new AppError("Usuário não encontrado", 404);
+    }
+    return user;
+  }
+
   async update(id: string, data: UpdateUserDTO) {
     await this.findById(id);
     return this.userRepository.update(id, data);

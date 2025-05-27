@@ -1,13 +1,56 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
 
+import type { RegisterRequest } from "@/types/auth";
+
+import { authService } from "@/services/auth";
+
 function RegisterPage() {
-  const handleRegister = (event: React.FormEvent) => {
+  const router = useRouter();
+  const [formData, setFormData] = useState<RegisterRequest & { confirmPassword: string }>({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleRegister = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Implementar a logica de registro aqui
-    console.log("Register form submitted");
+    setError("");
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("As senhas não coincidem");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await authService.register({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      });
+      localStorage.setItem("glossaryUpToken", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+      router.push("/dashboard");
+    }
+    catch (err: any) {
+      setError(err.response?.data?.message || "Erro ao criar conta");
+    }
+    finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -25,31 +68,59 @@ function RegisterPage() {
           <h1 className="text-xl font-bold md:text-2xl">Criar conta</h1>
           <p className="text-sm text-gray-400 md:text-base">Comece sua jornada de aprendizado agora mesmo</p>
 
-          <form className="flex flex-col gap-3 mt-6 md:gap-4 md:mt-8">
+          {error && (
+            <div className="mt-4 p-2 bg-red-500/10 border border-red-500 rounded-lg text-red-500 text-sm">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleRegister} className="flex flex-col gap-3 mt-6 md:gap-4 md:mt-8">
+            <label htmlFor="name" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Nome</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Seu nome"
+              className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
+            />
             <label htmlFor="email" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Email</label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="seu@email.com"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
             />
             <label htmlFor="password" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Senha</label>
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="••••••••"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
             />
-            <label htmlFor="confirm-password" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Confirmar Senha</label>
+            <label htmlFor="confirmPassword" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Confirmar Senha</label>
             <input
               type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               placeholder="••••••••"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
             />
             <button
               type="submit"
-              className="mt-3 bg-[#7f62f4] text-white rounded-3xl p-2 text-sm md:text-base md:mt-4"
-              onClick={handleRegister}
+              disabled={isLoading}
+              className="mt-3 bg-[#7f62f4] text-white rounded-3xl p-2 text-sm md:text-base md:mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Criar conta
+              {isLoading ? "Criando conta..." : "Criar conta"}
             </button>
           </form>
         </div>
@@ -60,7 +131,6 @@ function RegisterPage() {
         </Link>
       </div>
     </>
-
   );
 }
 

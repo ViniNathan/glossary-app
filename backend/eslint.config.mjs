@@ -16,7 +16,9 @@ export default antfu({
     "no-console": ["warn"],
     "antfu/no-top-level-await": ["off"],
     "node/prefer-global/process": ["off"],
-    "node/no-process-env": ["error"],
+    "n/no-process-env": ["error", {
+      allowedVariables: ["JWT_SECRET", "DATABASE_URL", "PORT"],
+    }],
     "perfectionist/sort-imports": ["error", {
       tsconfigRootDir: ".",
     }],

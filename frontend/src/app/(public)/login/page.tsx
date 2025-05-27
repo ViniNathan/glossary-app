@@ -1,13 +1,44 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
 
+import type { LoginRequest } from "@/types/auth";
+
+import { authService } from "@/services/auth";
+
 function LoginPage() {
-  const handleLogin = (event: React.FormEvent) => {
+  const router = useRouter();
+  const [formData, setFormData] = useState<LoginRequest>({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Implementar a logica de login aqui
-    console.log("Login form submitted");
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await authService.login(formData);
+      localStorage.setItem("glossaryUpToken", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+      router.push("/dashboard");
+    }
+    catch (err: any) {
+      setError(err.response?.data?.message || "Erro ao fazer login");
+    }
+    finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -25,25 +56,39 @@ function LoginPage() {
           <h1 className="text-xl font-bold md:text-2xl">Entrar</h1>
           <p className="text-sm text-gray-400 md:text-base">Faça login para começar sua jornada de aprendizado</p>
 
-          <form className="flex flex-col gap-3 mt-6 md:gap-4 md:mt-8">
+          {error && (
+            <div className="mt-4 p-2 bg-red-500/10 border border-red-500 rounded-lg text-red-500 text-sm">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="flex flex-col gap-3 mt-6 md:gap-4 md:mt-8">
             <label htmlFor="email" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Email</label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="seu@email.com"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
             />
             <label htmlFor="password" className="text-xs font-semibold md:text-sm md:mb-[-0.5rem]">Senha</label>
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="••••••••"
               className="border border-gray-600 rounded-lg p-2 bg-transparent text-sm md:text-base"
+              required
             />
             <button
               type="submit"
-              className="mt-3 bg-[#7f62f4] text-white rounded-3xl p-2 text-sm md:text-base md:mt-4"
-              onClick={handleLogin}
+              disabled={isLoading}
+              className="mt-3 bg-[#7f62f4] text-white rounded-3xl p-2 text-sm md:text-base md:mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Entrar
+              {isLoading ? "Entrando..." : "Entrar"}
             </button>
           </form>
         </div>
@@ -54,7 +99,6 @@ function LoginPage() {
         </Link>
       </div>
     </>
-
   );
 }
 
