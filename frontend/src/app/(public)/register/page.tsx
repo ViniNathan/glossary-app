@@ -1,4 +1,5 @@
 "use client";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -41,8 +42,21 @@ function RegisterPage() {
         email: formData.email,
         password: formData.password,
       });
-      localStorage.setItem("glossaryUpToken", response.token);
-      localStorage.setItem("user", JSON.stringify(response.user));
+      // Salvar nos cookies com expiração de 1 hora
+      Cookies.set("glossaryUpToken", response.token, {
+        expires: 1 / 24, // 1 hora (1 dia dividido por 24 horas)
+        secure: process.env.NODE_ENV === "production", // HTTPS em produção
+        sameSite: "strict", // Proteção CSRF
+        path: "/", // Disponível em toda a aplicação
+      });
+
+      Cookies.set("user", JSON.stringify(response.user), {
+        expires: 1 / 24, // 1 hora
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
+      });
+
       router.push("/dashboard");
     }
     catch (err: any) {
