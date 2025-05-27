@@ -41,7 +41,7 @@ function RegisterPage() {
         email: formData.email,
         password: formData.password,
       });
-      localStorage.setItem("token", response.token);
+      localStorage.setItem("glossaryUpToken", response.token);
       localStorage.setItem("user", JSON.stringify(response.user));
       router.push("/dashboard");
     }
