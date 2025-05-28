@@ -57,4 +57,49 @@ export class AuthController {
       return reply.status(401).send({ message: "Invalid refresh token", error: `Unauthorized: ${error.message}` });
     }
   }
+
+  async validate(request: FastifyRequest, reply: FastifyReply) {
+    try {
+      const authHeader = request.headers.authorization;
+      const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
+
+      if (!token) {
+        return reply.status(401).send({
+          valid: false,
+          message: "Token de acesso requerido",
+          error: "ACCESS_TOKEN_REQUIRED",
+        });
+      }
+
+      const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { id: string };
+      const user = await this.userService.findById(decoded.id);
+
+      if (!user) {
+        return reply.status(401).send({
+          valid: false,
+          message: "Usuário não encontrado",
+          error: "USER_NOT_FOUND",
+        });
+      }
+
+      return reply.send({
+        valid: true,
+        message: "Token válido",
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          xp: user.xp,
+          lives: user.lives,
+        },
+      });
+    }
+    catch (error: any) {
+      return reply.status(403).send({
+        valid: false,
+        message: "Token inválido",
+        error: `INVALID_TOKEN: ${error.message}`,
+      });
+    }
+  }
 }
