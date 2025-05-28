@@ -40,3 +40,15 @@ export interface FormState {
   isLoading: boolean;
   error: AuthError | null;
 }
+export interface ValidateTokenResponse {
+  valid: boolean;
+  message: string;
+  user?: {
+    id: string;
+    name: string;
+    email: string;
+    xp: number;
+    lives: number;
+  };
+  error?: string;
+}
