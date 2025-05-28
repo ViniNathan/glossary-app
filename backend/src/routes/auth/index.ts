@@ -5,6 +5,7 @@ import {
   loginSchema,
   refreshTokenSchema,
   registerSchema,
+  validateTokenSchema,
 } from "../../schemas/auth/auth-schema";
 
 export async function authRoutes(fastify: FastifyInstance) {
@@ -26,6 +27,12 @@ export async function authRoutes(fastify: FastifyInstance) {
     "/refresh",
     { schema: refreshTokenSchema },
     authController.refreshToken.bind(authController),
+  );
+
+  fastify.get(
+    "/validate",
+    { schema: validateTokenSchema },
+    authController.validate.bind(authController),
   );
 }
 
