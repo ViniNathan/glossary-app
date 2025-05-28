@@ -83,3 +83,37 @@ export const refreshTokenSchema = {
     }),
   },
 };
+
+export const validateTokenSchema = {
+  tags: ["auth"],
+  description: "Validar token de autenticação",
+  headers: Type.Object({
+    authorization: Type.String({
+      description: "Bearer token",
+      pattern: "^Bearer .+",
+    }),
+  }),
+  response: {
+    200: Type.Object({
+      valid: Type.Boolean(),
+      message: Type.String(),
+      user: Type.Object({
+        id: Type.String(),
+        name: Type.String(),
+        email: Type.String(),
+        xp: Type.Number(),
+        lives: Type.Number(),
+      }),
+    }),
+    401: Type.Object({
+      valid: Type.Boolean(),
+      message: Type.String(),
+      error: Type.String(),
+    }),
+    403: Type.Object({
+      valid: Type.Boolean(),
+      message: Type.String(),
+      error: Type.String(),
+    }),
+  },
+};
