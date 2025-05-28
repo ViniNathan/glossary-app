@@ -11,6 +11,7 @@ function DashboardTopbar() {
           <span className="text-2xl font-semibold">5</span>
         </div>
       </div>
+      <p className="text-lg font-semibold text-gray-400 mt-4 uppercase">DIFÍCIL</p>
     </div>
   );
 }
