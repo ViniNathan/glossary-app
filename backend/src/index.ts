@@ -36,28 +36,10 @@ async function build() {
     await app.register(import("@fastify/swagger-ui"), {
       routePrefix: "/docs", // Rota onde a documentação estará disponível
       uiConfig: {
-        docExpansion: "full", // Expande todos os endpoints por padrão
+        docExpansion: "none", // Retrai as seções por padrão
         deepLinking: true, // Permite links diretos para endpoints específicos
       },
       staticCSP: true,
-    });
-
-    // Rota de teste com schema para documentação
-    app.get("/", {
-      schema: {
-        description: "Endpoint de teste da API",
-        tags: ["system"],
-        response: {
-          200: {
-            type: "object",
-            properties: {
-              message: { type: "string" },
-            },
-          },
-        },
-      },
-    }, async () => {
-      return { message: "API funcionando!" };
     });
 
     // Registra o plugin de autenticação
