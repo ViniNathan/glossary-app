@@ -28,15 +28,33 @@ export const updateUserSchema = {
     id: Type.String(),
   }),
   body: Type.Object({
-    name: Type.Optional(Type.String()),
-    email: Type.Optional(Type.String({ format: "email" })),
-    password: Type.Optional(Type.String({ minLength: 6 })),
+    name: Type.String(),
+    email: Type.String({ format: "email" }),
+    password: Type.String({ minLength: 6 }),
+    newPassword: Type.Optional(Type.String({ minLength: 6 })),
+    confirmNewPassword: Type.Optional(Type.String({ minLength: 6 })),
+    newName: Type.Optional(Type.String()),
+    newEmail: Type.Optional(Type.String({ format: "email" })),
+    confirmNewEmail: Type.Optional(Type.String({ format: "email" })),
   }),
   response: {
     200: Type.Object({
-      id: Type.String(),
-      name: Type.String(),
-      email: Type.String(),
+      message: Type.String(),
+      user: Type.Object({
+        id: Type.String(),
+        name: Type.String(),
+        email: Type.String(),
+        xp: Type.Number(),
+        lives: Type.Number(),
+      }),
+    }),
+    400: Type.Object({
+      message: Type.String(),
+      error: Type.String(),
+    }),
+    401: Type.Object({
+      message: Type.String(),
+      error: Type.String(),
     }),
   },
 };
