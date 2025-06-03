@@ -1,13 +1,17 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMenu } from "react-icons/io5";
+
+import { authService } from "../../services/auth";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { scrollY } = useScroll();
 
@@ -25,6 +29,37 @@ export default function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const validateToken = async () => {
+    const token = document.cookie.split("; ").find(row => row.startsWith("glossaryUpToken="));
+    if (token) {
+      const response = await authService.validateToken(token.split("=")[1]);
+      return response;
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const tokenResponse = await validateToken();
+        if (tokenResponse && tokenResponse.valid) {
+          setIsAuthenticated(true);
+        }
+        else {
+          setIsAuthenticated(false);
+        }
+      }
+      catch (error) {
+        setIsAuthenticated(false);
+      }
+      finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   return (
     <motion.div
@@ -45,6 +80,7 @@ export default function Header() {
 
           {/* Botão de menu - mobile */}
           <button
+            type="button"
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-md text-gray-200 hover:text-white hover:bg-[#18181b] focus:outline-none"
             aria-label="Menu"
@@ -54,18 +90,35 @@ export default function Header() {
 
           {/* Botões de navegação - desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/login"
-              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white transition-colors rounded-full"
-            >
-              Entrar
-            </Link>
-            <Link
-              href="/register"
-              className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white border hover:bg-white hover:text-[#18181b] transition-colors rounded-full"
-            >
-              Criar Conta
-            </Link>
+            {!isLoading && (
+              <>
+                {isAuthenticated
+                  ? (
+                      <Link
+                        href="/dashboard"
+                        className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white border-2 hover:bg-white hover:text-[#18181b] transition-colors rounded-full"
+                      >
+                        Dashboard
+                      </Link>
+                    )
+                  : (
+                      <>
+                        <Link
+                          href="/login"
+                          className="px-4 py-1 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white transition-colors rounded-full"
+                        >
+                          Entrar
+                        </Link>
+                        <Link
+                          href="/register"
+                          className="px-4 py-1 text-sm font-light tracking-widest uppercase text-white border-2 hover:bg-white hover:text-[#18181b] transition-colors rounded-full"
+                        >
+                          Criar Conta
+                        </Link>
+                      </>
+                    )}
+              </>
+            )}
           </div>
         </div>
 
@@ -73,18 +126,35 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/login"
-                className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white hover:bg-[#18181b] transition-colors rounded-md"
-              >
-                Entrar
-              </Link>
-              <Link
-                href="/register"
-                className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-md"
-              >
-                Criar Conta
-              </Link>
+              {!isLoading && (
+                <>
+                  {isAuthenticated
+                    ? (
+                        <Link
+                          href="/dashboard"
+                          className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-md"
+                        >
+                          Dashboard
+                        </Link>
+                      )
+                    : (
+                        <>
+                          <Link
+                            href="/login"
+                            className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-gray-200 hover:text-white hover:bg-[#18181b] transition-colors rounded-md"
+                          >
+                            Entrar
+                          </Link>
+                          <Link
+                            href="/register"
+                            className="block px-3 py-2 text-sm font-light tracking-widest uppercase text-white bg-[#18181b] hover:bg-[#232329] transition-colors rounded-md"
+                          >
+                            Criar Conta
+                          </Link>
+                        </>
+                      )}
+                </>
+              )}
             </div>
           </div>
         )}
