@@ -5,7 +5,8 @@ import fastify from "fastify";
 import { authPlugin } from "./middleware/auth-middleware";
 import attemptRoutes from "./routes/attempts";
 import authRoutes from "./routes/auth";
-import userRoutes from "./routes/users/index";
+import userRoutes from "./routes/users";
+import wordRoutes from "./routes/words";
 
 dotenv.config();
 
