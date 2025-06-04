@@ -39,4 +39,9 @@ export class WordController {
     await this.wordService.delete(request.params.id);
     return reply.status(204).send();
   }
+
+  async getRandomWord(request: FastifyRequest, reply: FastifyReply) {
+    const randomWord = await this.wordService.getRandomWord();
+    return reply.send(randomWord);
+  }
 }
