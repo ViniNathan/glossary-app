@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify/fastify";
 
 import { WordController } from "../../controllers/words/word-controller";
-import { createWordSchema, updateWordSchema } from "../../schemas/words/word-schema";
+import { createWordSchema, getRandomWordSchema, updateWordSchema } from "../../schemas/words/word-schema";
 
 export async function wordRoutes(app: FastifyInstance) {
   const wordController = new WordController();
@@ -21,4 +21,8 @@ export async function wordRoutes(app: FastifyInstance) {
   }, wordController.update);
 
   app.delete("/words/:id", wordController.delete);
+
+  app.get("/words/random", {
+    schema: getRandomWordSchema,
+  }, wordController.getRandomWord);
 }
