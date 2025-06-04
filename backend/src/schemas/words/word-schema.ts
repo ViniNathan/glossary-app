@@ -18,6 +18,21 @@ export const createWordSchema = {
   },
 };
 
+export const listWordsSchema = {
+  tags: ["words"],
+  description: "Lista todas as palavras do dicionário",
+  response: {
+    200: Type.Array(
+      Type.Object({
+        id: Type.String(),
+        english_word: Type.String(),
+        portuguese_translation: Type.String(),
+        difficulty_level: Type.String(),
+      }),
+    ),
+  },
+};
+
 export const updateWordSchema = {
   tags: ["words"],
   description: "Atualiza uma palavra existente no dicionário",
