@@ -1,6 +1,8 @@
 import { Type } from "@fastify/type-provider-typebox";
 
 export const createWordSchema = {
+  tags: ["Words"],
+  description: "Cria uma nova palavra no dicionário",
   body: Type.Object({
     english_word: Type.String(),
     portuguese_translation: Type.String(),
