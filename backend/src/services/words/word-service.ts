@@ -43,4 +43,12 @@ export class WordService {
     await this.findById(id);
     return this.wordRepository.delete(id);
   }
+
+  async getRandomWord() {
+    const randomWord = await this.wordRepository.getRandomWord();
+    if (!randomWord) {
+      throw new AppError("Nenhuma palavra encontrada", 404);
+    }
+    return randomWord;
+  }
 }
