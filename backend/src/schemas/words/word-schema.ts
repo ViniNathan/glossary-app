@@ -1,7 +1,7 @@
 import { Type } from "@fastify/type-provider-typebox";
 
 export const createWordSchema = {
-  tags: ["Words"],
+  tags: ["words"],
   description: "Cria uma nova palavra no dicionário",
   body: Type.Object({
     english_word: Type.String(),
@@ -19,7 +19,7 @@ export const createWordSchema = {
 };
 
 export const updateWordSchema = {
-  tags: ["Words"],
+  tags: ["words"],
   description: "Atualiza uma palavra existente no dicionário",
   body: Type.Partial(createWordSchema.body),
   response: {
@@ -33,7 +33,7 @@ export const updateWordSchema = {
 };
 
 export const getRandomWordSchema = {
-  tags: ["Words"],
+  tags: ["words"],
   description: "Obtém uma palavra aleatória do dicionário",
   response: {
     200: Type.Object({
