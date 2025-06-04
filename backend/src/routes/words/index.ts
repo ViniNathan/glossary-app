@@ -8,31 +8,31 @@ export async function wordRoutes(app: FastifyInstance) {
 
   app.post("/words", {
     schema: createWordSchema,
-  }, wordController.create);
+  }, wordController.create.bind(wordController));
 
   app.get("/words", {
     schema: listWordsSchema,
-  }, wordController.list);
+  }, wordController.list.bind(wordController));
 
   app.get("/words/search/by-id/:id", {
     schema: findWordByIdSchema,
-  }, wordController.findById);
+  }, wordController.findById.bind(wordController));
 
   app.get("/words/search/by-word/:word", {
     schema: findWordByWordSchema,
-  }, wordController.findByWord);
+  }, wordController.findByWord.bind(wordController));
 
   app.put("/words/:id", {
     schema: updateWordSchema,
-  }, wordController.update);
+  }, wordController.update.bind(wordController));
 
   app.delete("/words/:id", {
     schema: deleteWordSchema,
-  }, wordController.delete);
+  }, wordController.delete.bind(wordController));
 
   app.get("/words/random", {
     schema: getRandomWordSchema,
-  }, wordController.getRandomWord);
+  }, wordController.getRandomWord.bind(wordController));
 }
 
 export default wordRoutes;
