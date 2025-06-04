@@ -27,3 +27,14 @@ export const updateWordSchema = {
     }),
   },
 };
+
+export const getRandomWordSchema = {
+  response: {
+    200: Type.Object({
+      id: Type.String(),
+      english_word: Type.String(),
+      portuguese_translation: Type.String(),
+      difficulty_level: Type.String(),
+    }),
+  },
+};
