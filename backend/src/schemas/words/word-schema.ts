@@ -19,6 +19,8 @@ export const createWordSchema = {
 };
 
 export const updateWordSchema = {
+  tags: ["Words"],
+  description: "Atualiza uma palavra existente no dicionário",
   body: Type.Partial(createWordSchema.body),
   response: {
     200: Type.Object({
