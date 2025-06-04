@@ -33,6 +33,8 @@ export const updateWordSchema = {
 };
 
 export const getRandomWordSchema = {
+  tags: ["Words"],
+  description: "Obtém uma palavra aleatória do dicionário",
   response: {
     200: Type.Object({
       id: Type.String(),
