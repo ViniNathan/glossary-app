@@ -39,4 +39,16 @@ export class WordRepository {
       where: { id },
     });
   }
+
+  async getRandomWord() {
+    const wordCount = await this.prisma.word.count();
+    if (wordCount === 0) {
+      return null;
+    }
+
+    const skip = Math.floor(Math.random() * wordCount);
+    return this.prisma.word.findFirst({
+      skip,
+    });
+  }
 }
