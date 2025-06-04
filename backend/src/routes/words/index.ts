@@ -26,3 +26,5 @@ export async function wordRoutes(app: FastifyInstance) {
     schema: getRandomWordSchema,
   }, wordController.getRandomWord);
 }
+
+export default wordRoutes;
