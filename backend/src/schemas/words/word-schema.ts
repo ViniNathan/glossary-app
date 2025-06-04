@@ -33,6 +33,22 @@ export const listWordsSchema = {
   },
 };
 
+export const findWordByIdSchema = {
+  tags: ["words"],
+  description: "Busca uma palavra pelo ID",
+  params: Type.Object({
+    id: Type.String(),
+  }),
+  response: {
+    200: Type.Object({
+      id: Type.String(),
+      english_word: Type.String(),
+      portuguese_translation: Type.String(),
+      difficulty_level: Type.String(),
+    }),
+  },
+};
+
 export const updateWordSchema = {
   tags: ["words"],
   description: "Atualiza uma palavra existente no dicionário",
