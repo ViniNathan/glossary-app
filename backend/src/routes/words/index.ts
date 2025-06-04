@@ -12,9 +12,9 @@ export async function wordRoutes(app: FastifyInstance) {
 
   app.get("/words", wordController.list);
 
-  app.get("/words/search/:id", wordController.findById);
+  app.get("/words/search/by-id/:id", wordController.findById);
 
-  app.get("/words/search/:word", wordController.findByWord);
+  app.get("/words/search/by-word/:word", wordController.findByWord);
 
   app.put("/words/:id", {
     schema: updateWordSchema,
