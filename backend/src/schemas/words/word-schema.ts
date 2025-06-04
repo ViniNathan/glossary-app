@@ -79,6 +79,17 @@ export const updateWordSchema = {
   },
 };
 
+export const deleteWordSchema = {
+  tags: ["words"],
+  description: "Deleta uma palavra do dicionário",
+  params: Type.Object({
+    id: Type.String(),
+  }),
+  response: {
+    204: Type.Null(),
+  },
+};
+
 export const getRandomWordSchema = {
   tags: ["words"],
   description: "Obtém uma palavra aleatória do dicionário",
