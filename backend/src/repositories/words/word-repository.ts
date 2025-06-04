@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-
 import type { CreateWordDTO, UpdateWordDTO } from "../../types/words/word-types";
+
+import { PrismaClient } from "../../generated/prisma";
 
 export class WordRepository {
   constructor(private prisma = new PrismaClient()) { }
@@ -22,8 +22,8 @@ export class WordRepository {
   }
 
   async findByWord(word: string) {
-    return this.prisma.word.findUnique({
-      where: { word },
+    return this.prisma.word.findFirst({
+      where: { english_word: word },
     });
   }
 
