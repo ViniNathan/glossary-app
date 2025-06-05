@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify/fastify";
 
 import { WordController } from "../../controllers/words/word-controller";
-import { createWordSchema, deleteWordSchema, findWordByIdSchema, findWordByWordSchema, getRandomWordSchema, listWordsSchema, updateWordSchema } from "../../schemas/words/word-schema";
+import { checkTranslationSchema, createWordSchema, deleteWordSchema, findWordByIdSchema, findWordByWordSchema, getRandomWordSchema, listWordsSchema, updateWordSchema } from "../../schemas/words/word-schema";
 
 export async function wordRoutes(app: FastifyInstance) {
   const wordController = new WordController();
@@ -33,6 +33,10 @@ export async function wordRoutes(app: FastifyInstance) {
   app.get("/words/random", {
     schema: getRandomWordSchema,
   }, wordController.getRandomWord.bind(wordController));
+
+  app.post("/words/check-translation", {
+    schema: checkTranslationSchema,
+  }, wordController.checkTranslation.bind(wordController));
 }
 
 export default wordRoutes;

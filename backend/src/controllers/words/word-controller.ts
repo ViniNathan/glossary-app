@@ -5,7 +5,7 @@ import type { CreateWordDTO, UpdateWordDTO } from "../../types/words/word-types"
 import { WordService } from "../../services/words/word-service";
 
 export class WordController {
-  constructor(private wordService = new WordService()) {}
+  constructor(private wordService = new WordService()) { }
 
   async create(request: FastifyRequest<{ Body: CreateWordDTO }>, reply: FastifyReply) {
     const word = await this.wordService.create(request.body);
@@ -43,5 +43,14 @@ export class WordController {
   async getRandomWord(request: FastifyRequest, reply: FastifyReply) {
     const randomWord = await this.wordService.getRandomWord();
     return reply.send(randomWord);
+  }
+
+  async checkTranslation(
+    request: FastifyRequest<{ Body: { english_word: string; portuguese_translation: string } }>,
+    reply: FastifyReply,
+  ) {
+    const { english_word, portuguese_translation } = request.body;
+    const result = await this.wordService.checkTranslation(english_word, portuguese_translation);
+    return reply.send(result);
   }
 }
