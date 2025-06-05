@@ -102,3 +102,18 @@ export const getRandomWordSchema = {
     }),
   },
 };
+
+export const checkTranslation = {
+  tags: ["words"],
+  description: "Verifica se a tradução está correta",
+  body: Type.Object({
+    english_word: Type.String(),
+    user_translation: Type.String(),
+  }),
+  response: {
+    200: Type.Object({
+      is_correct: Type.Boolean(),
+      correct_translation: Type.String(),
+    }),
+  },
+}
