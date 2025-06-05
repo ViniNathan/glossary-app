@@ -51,4 +51,12 @@ export class WordService {
     }
     return randomWord;
   }
+
+  async checkTranslation(english_word: string, portuguese_translation: string) {
+    const word = await this.wordRepository.checkTranslation(english_word, portuguese_translation);
+    if (!word) {
+      throw new AppError("Tradução incorreta", 400);
+    }
+    return word;
+  }
 }
