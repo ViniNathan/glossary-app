@@ -51,4 +51,13 @@ export class WordRepository {
       skip,
     });
   }
+
+  async checkTranslation(english_word: string, portuguese_translation: string) {
+    return this.prisma.word.findFirst({
+      where: {
+        english_word,
+        portuguese_translation,
+      },
+    });
+  }
 }
