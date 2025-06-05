@@ -108,7 +108,7 @@ export const checkTranslation = {
   description: "Verifica se a tradução está correta",
   body: Type.Object({
     english_word: Type.String(),
-    user_translation: Type.String(),
+    portuguese_translation: Type.String(),
   }),
   response: {
     200: Type.Object({
@@ -116,4 +116,4 @@ export const checkTranslation = {
       correct_translation: Type.String(),
     }),
   },
-}
+};
