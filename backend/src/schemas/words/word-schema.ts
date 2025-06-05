@@ -103,7 +103,7 @@ export const getRandomWordSchema = {
   },
 };
 
-export const checkTranslation = {
+export const checkTranslationSchema = {
   tags: ["words"],
   description: "Verifica se a tradução está correta",
   body: Type.Object({
