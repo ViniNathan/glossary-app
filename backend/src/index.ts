@@ -5,6 +5,7 @@ import fastify from "fastify";
 import { authPlugin } from "./middleware/auth-middleware";
 import attemptRoutes from "./routes/attempts";
 import authRoutes from "./routes/auth";
+import sessionRoutes from "./routes/sessions";
 import userRoutes from "./routes/users";
 import wordRoutes from "./routes/words";
 
@@ -57,6 +58,9 @@ async function build() {
 
     // Registra as rotas de palavras
     await app.register(wordRoutes, { prefix: "/api" });
+
+    // Registra as rotas de sessões
+    await app.register(sessionRoutes, { prefix: "/api/sessions" });
 
     return app;
   }
