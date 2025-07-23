@@ -50,7 +50,7 @@ export default function Header() {
           setIsAuthenticated(false);
         }
       }
-      catch (error) {
+      catch {
         setIsAuthenticated(false);
       }
       finally {
