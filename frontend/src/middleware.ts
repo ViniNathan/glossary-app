@@ -49,7 +49,7 @@ export async function middleware(request: NextRequest) {
       // Token válido, permite acesso
       return NextResponse.next();
     }
-    catch (error) {
+    catch {
       // Em caso de erro na validação, trata como token inválido
       const response = NextResponse.redirect(new URL(REDIRECT_WHEN_NOT_AUTHENTICADED_ROUTE, request.url));
       response.cookies.delete("glossaryUpToken");
