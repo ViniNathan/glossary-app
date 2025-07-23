@@ -1,15 +1,15 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 function HeroSection() {
-    const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const element = document.getElementById('how-it-works');
+    const element = document.getElementById("how-it-works");
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -32,7 +32,7 @@ function HeroSection() {
           <Link href="/register" className="px-6 py-3 rounded-full bg-transparent border border-purple-700 hover:bg-purple-700 hover:border-purple-700 text-white font-semibold shadow-lg transition-all duration-200">
             Começar agora
           </Link>
-          <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold shadow-lg transition-all duration-200" onClick={scrollToSection}>
+          <button type="button" className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold shadow-lg transition-all duration-200" onClick={scrollToSection}>
             Como funciona
           </button>
         </div>
