@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
 
-import Header from "@/app/components/Header";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "GlossaryUP",
   description: "GlossaryUP is a platform for students to refine their skills and knowledge.",
 };
 
-export default function HomepageLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className="text-black md:pt-5">
-      <Header />
-      <main className="min-h-screen">
+    <html lang="pt-BR">
+      <body className="overflow-x-hidden w-screen bg-bg">
         {children}
-      </main>
-    </div>
+      </body>
+    </html>
   );
-}
+} 
